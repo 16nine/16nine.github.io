@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>16nine</title>
   <style>
   html, body {
     height: 100%;
@@ -17,10 +17,37 @@
   canvas {
     border: 1px solid white;
   }
+  #arrow-keys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#canvas-wrap {
+    margin:auto;
+    width: 400px;
+    height: 400px;
+}
+img {
+    position: absolute;
+    margin-top:-500px;
+}
   </style>
 </head>
 <body>
-<canvas width="400" height="400" id="game"></canvas>
+<img src="logo.png" alt="16nine"/>
+<div id="canvas-wrap">
+	<canvas width="400" height="400" id="game"></canvas>
+	<div id="arrow-keys">
+		<button class="arrow up">▲</button>
+		<button class="arrow left">◄</button>
+		<button class="arrow down">▼</button>
+		<button class="arrow right">►</button>
+		<button class="arrow up">▲</button>
+	</div>
+</div>
+
 <script>
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
@@ -159,6 +186,33 @@ document.addEventListener('keydown', function(e) {
     snake.dy = grid;
     snake.dx = 0;
   }
+});
+
+const arrowKeys = document.querySelectorAll('.arrow');
+
+arrowKeys.forEach((arrow) => {
+    arrow.addEventListener('click', (e) => {
+        // left arrow key
+            if (e.target.classList.contains('left') && snake.dx === 0) {
+    snake.dx = -grid;
+    snake.dy = 0;
+  }
+  // up arrow key
+  else if (e.target.classList.contains('up') && snake.dy === 0) {
+    snake.dy = -grid;
+    snake.dx = 0;
+  }
+  // right arrow key
+  else if (e.target.classList.contains('right') && snake.dx === 0) {
+    snake.dx = grid;
+    snake.dy = 0;
+  }
+  // down arrow key
+  else if (e.target.classList.contains('down') && snake.dy === 0) {
+    snake.dy = grid;
+    snake.dx = 0;
+  }
+    });
 });
 
 // start the game
