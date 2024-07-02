@@ -23,6 +23,13 @@
     align-items: center;
     gap: 10px;
 }
+#arrow-keys2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+	margin-top: 10px
+}
 
 #canvas-wrap {
     margin:auto;
@@ -33,6 +40,11 @@ img {
     position: absolute;
     margin-top:-500px;
 }
+
+.arrow{
+    height:100px;
+    width:100px;
+}
   </style>
 </head>
 <body>
@@ -41,10 +53,12 @@ img {
 	<canvas width="400" height="400" id="game"></canvas>
 	<div id="arrow-keys">
 		<button class="arrow up">▲</button>
+	</div>
+	
+	<div id="arrow-keys2">
 		<button class="arrow left">◄</button>
 		<button class="arrow down">▼</button>
 		<button class="arrow right">►</button>
-		<button class="arrow up">▲</button>
 	</div>
 </div>
 
